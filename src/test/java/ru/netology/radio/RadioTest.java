@@ -7,7 +7,7 @@ public class RadioTest {
 
     @Test
     public void SetStationNumberTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setStationNumber(2);
 
         int expected = 2;
@@ -18,8 +18,8 @@ public class RadioTest {
 
     @Test
     public void SetStationNumberMoreAllowableValueTest() {
-        Radio radio = new Radio();
-        radio.setStationNumber(10);
+        Radio radio = new Radio(20);
+        radio.setStationNumber(20);
 
         int expected = 0;
         int actual = radio.stationNumber;
@@ -29,7 +29,7 @@ public class RadioTest {
 
     @Test
     public void SetStationNumberLessAllowableValueTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(15);
         radio.setStationNumber(-1);
 
         int expected = 0;
@@ -40,7 +40,7 @@ public class RadioTest {
 
     @Test
     public void NextInAllowableValueTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setStationNumber(5);
         radio.next();
 
@@ -52,8 +52,8 @@ public class RadioTest {
 
     @Test
     public void NextMoreAllowableValueTest() {
-        Radio radio = new Radio();
-        radio.setStationNumber(9);
+        Radio radio = new Radio(20);
+        radio.setStationNumber(19);
         radio.next();
 
         int expected = 0;
@@ -64,7 +64,7 @@ public class RadioTest {
 
     @Test
     public void NextMinAllowableValueTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setStationNumber(0);
         radio.next();
 
@@ -76,7 +76,7 @@ public class RadioTest {
 
     @Test
     public void PrevInAllowableValueTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.setStationNumber(5);
         radio.prev();
 
@@ -88,11 +88,11 @@ public class RadioTest {
 
     @Test
     public void PrevMinAllowableValueTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(25);
         radio.setStationNumber(0);
         radio.prev();
 
-        int expected = 9;
+        int expected = 24;
         int actual = radio.stationNumber;
 
         Assertions.assertEquals(expected, actual);
@@ -100,7 +100,7 @@ public class RadioTest {
 
     @Test
     public void IncreaseVolumeMaxTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.volume = 100;
         radio.increaseVolume();
 
@@ -112,7 +112,7 @@ public class RadioTest {
 
     @Test
     public void IncreaseVolumeAllowableValueTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.volume = 56;
         radio.increaseVolume();
 
@@ -124,7 +124,7 @@ public class RadioTest {
 
     @Test
     public void DecreaseVolumeMaxTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.volume = 100;
         radio.decreaseVolume();
 
@@ -136,7 +136,7 @@ public class RadioTest {
 
     @Test
     public void DecreaseVolumeAllowableValueTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.volume = 82;
         radio.decreaseVolume();
 
@@ -148,7 +148,7 @@ public class RadioTest {
 
     @Test
     public void DecreaseVolumeMinValueTest() {
-        Radio radio = new Radio();
+        Radio radio = new Radio(10);
         radio.volume = 0;
         radio.decreaseVolume();
 

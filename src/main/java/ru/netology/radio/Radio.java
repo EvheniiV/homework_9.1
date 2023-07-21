@@ -1,22 +1,27 @@
 package ru.netology.radio;
 
 public class Radio {
+    int quantityStations = 10;
     int stationNumber;
     int volume;
 
+    public Radio(int quantityStations) {
+        this.quantityStations = quantityStations -1;
+    }
+
     public void setStationNumber(int newStationNumber) {
-        if (newStationNumber > 9) return;
+        if (newStationNumber > quantityStations) return;
         if (newStationNumber < 0) return;
         stationNumber = newStationNumber;
     }
 
     public void next() {
-        if (stationNumber == 9) stationNumber = 0;
+        if (stationNumber == quantityStations) stationNumber = 0;
         else stationNumber++;
     }
 
     public void prev() {
-        if (stationNumber == 0) stationNumber = 9;
+        if (stationNumber == 0) stationNumber = quantityStations;
         else stationNumber = stationNumber - 1;
     }
 
