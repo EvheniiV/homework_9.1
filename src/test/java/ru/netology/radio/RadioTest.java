@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 public class RadioTest {
 
     @Test
-    public void SetQuantityStationsTest(){
+    public void SetQuantityStationsTest() {
         Radio radio = new Radio(25);
 
         int expected = 24;
@@ -14,6 +14,7 @@ public class RadioTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     @Test
     public void SetStationNumberTest() {
         Radio radio = new Radio(10);

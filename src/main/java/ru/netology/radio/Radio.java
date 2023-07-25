@@ -8,6 +8,7 @@ public class Radio {
     public Radio() {
         this.quantityStations = 9;
     }
+
     public Radio(int quantityStations) {
         this.quantityStations = quantityStations - 1;
     }
@@ -47,8 +48,7 @@ public class Radio {
     public void next() {
         if (stationNumber == quantityStations) {
             stationNumber = 0;
-        }
-        else {
+        } else {
             stationNumber++;
         }
     }
@@ -56,8 +56,7 @@ public class Radio {
     public void prev() {
         if (stationNumber == 0) {
             stationNumber = quantityStations;
-        }
-        else {
+        } else {
             stationNumber = stationNumber - 1;
         }
     }
@@ -65,8 +64,7 @@ public class Radio {
     public void increaseVolume() {
         if (volume == 100) {
             return;
-        }
-        else {
+        } else {
             volume++;
         }
     }
@@ -74,8 +72,7 @@ public class Radio {
     public void decreaseVolume() {
         if (volume == 0) {
             return;
-        }
-        else {
+        } else {
             volume = volume - 1;
         }
     }
